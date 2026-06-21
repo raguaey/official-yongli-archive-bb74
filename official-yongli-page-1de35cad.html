@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日常对照与延伸阅读 · 永利</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Georgia", "Noto Serif SC", "Source Han Serif SC", serif;
+      background: linear-gradient(145deg, #fbf3e0 0%, #f7e9d3 50%, #f2dec0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.7;
+      color: #3b2e24;
+    }
+
+    .content-card {
+      max-width: 780px;
+      width: 100%;
+      background: #fffcf7;
+      padding: 2.8rem 2.8rem 3.2rem;
+      border-radius: 32px;
+      box-shadow: 0 12px 28px rgba(110, 70, 30, 0.08), 0 4px 12px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .content-card:hover {
+      box-shadow: 0 16px 36px rgba(110, 70, 30, 0.12);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+      color: #4f3a28;
+      border-left: 5px solid #c9a87c;
+      padding-left: 1.2rem;
+    }
+
+    .subhead {
+      font-size: 1.05rem;
+      color: #7a6247;
+      margin-bottom: 2rem;
+      padding-left: 1.8rem;
+      font-style: italic;
+      border-bottom: 1px dashed #dcc9b2;
+      padding-bottom: 0.7rem;
+    }
+
+    .intro {
+      margin-bottom: 2rem;
+      background: #f9f1e6;
+      padding: 1.4rem 1.8rem;
+      border-radius: 24px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .intro p {
+      margin-bottom: 0.6rem;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #5a422e;
+      margin: 2.2rem 0 0.8rem;
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+
+    .quote-block {
+      background: #f4eee4;
+      border-left: 4px solid #c9a87c;
+      padding: 1.2rem 1.5rem;
+      margin: 1.8rem 0;
+      border-radius: 0 16px 16px 0;
+      font-style: normal;
+      color: #4c3b2b;
+    }
+
+    .quote-block p {
+      margin-bottom: 0.4rem;
+    }
+
+    .quote-block .source {
+      text-align: right;
+      font-size: 0.95rem;
+      color: #7f6b55;
+    }
+
+    .scene-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 1.8rem;
+    }
+
+    .scene-list li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
+    }
+
+    .scene-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0.5rem;
+      color: #b38b65;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .link-button {
+      display: inline-block;
+      background: #e6d5bd;
+      color: #3b2e24;
+      padding: 0.45rem 1.1rem 0.5rem 1.1rem;
+      border-radius: 36px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.1s;
+      border: 1px solid transparent;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    .link-button:hover {
+      background: #dcc6aa;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(110, 70, 30, 0.12);
+    }
+
+    .inline-link {
+      color: #7b5c3f;
+      text-decoration: underline;
+      text-decoration-color: #d4bb9c;
+      text-underline-offset: 3px;
+      transition: color 0.15s, text-decoration-color 0.15s;
+    }
+
+    .inline-link:hover {
+      color: #4f3420;
+      text-decoration-color: #9b7a5a;
+    }
+
+    .visit-note {
+      margin-top: 2.2rem;
+      padding: 1.5rem 1.8rem;
+      background: #f2eadc;
+      border-radius: 24px;
+      font-size: 0.98rem;
+      border: 1px solid #e4d5bf;
+    }
+
+    .faq-mini {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e0cfb9;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #5c4835;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      font-size: 1.02rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 1rem;
+    }
+
+    .faq-mini details p {
+      margin-top: 0.6rem;
+      padding-left: 0.6rem;
+      color: #4f3d2c;
+      font-size: 0.98rem;
+    }
+
+    .footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #8d765b;
+      border-top: 1px solid #e3d5c2;
+      padding-top: 1.8rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .content-card {
+        padding: 1.8rem 1.5rem 2rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+        padding-left: 0.8rem;
+      }
+      .subhead {
+        padding-left: 1rem;
+        font-size: 0.95rem;
+      }
+      .intro {
+        padding: 1rem 1.2rem;
+      }
+      .quote-block {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="content-card">
+  <h1>日常查询与对照</h1>
+  <div class="subhead">一种温和的延伸阅读习惯</div>
+
+  <div class="intro">
+    <p>信息繁杂的日常里，我们常常需要停下来，核对一个概念、追溯一处细节，或者单纯想读一段不赶时间的文字。对许多人来说，<a href="https://official-yongli.com" class="inline-link">永利</a>便是这样一个安静的坐标——它不喧哗，却始终清晰地提供着对照与延伸的可能。</p>
+    <p>这一页不打算罗列功能，而是试着描述一种查阅时的体会：当你想确认某个说法，或者只是想顺着一条线索多走几步，打开它的感觉，像是走进一间有年代感的书房，四面是书，光线恰好。</p>
+  </div>
+
+  <h2>从一段笔记说起</h2>
+  <p>上个月整理旧笔记本，翻到一行潦草的字：“查‘永利’——对照条目，延伸阅读”。当时大概是在读一篇关于地方风物的文章，其中引用了几段札记，出处标注的是 <a href="https://official-yongli.com" class="inline-link">永利</a>。后来我确实去看了，发现那些条目写得节制而清晰，没有多余的解释，但每一段都留有余地——你可以就此停下，也可以顺着它提供的线索继续深入。</p>
+  <p>这种“可进可退”的体验，在如今的信息环境里其实不多见。很多平台恨不得把你留在每一条链接里，不断推送、不断刷新。但在这里，页面安安静静的，像是在说：内容就在这里，你慢慢看。</p>
+
+  <div class="quote-block">
+    <p>“我们需要的不是更多的信息，而是更好的索引，以及一种允许自己走神的阅读节奏。”</p>
+    <p class="source">——摘自某次查询后的随记</p>
+  </div>
+
+  <h2>常见的几种使用场景</h2>
+  <p>根据自己以及周围朋友的反馈，以下情境下人们会自然地想起使用它：</p>
+  <ul class="scene-list">
+    <li>核对某个特定名称或术语的准确表述，尤其是涉及跨领域资料时；</li>
+    <li>写文章或做笔记过程中，需要一句可靠的引文作为支撑；</li>
+    <li>纯粹想读一些有质感的条目，不带目的，只是一种延伸阅读；</li>
+    <li>偶尔遇到模糊的记忆，想通过关键词检索来确认或纠正。</li>
+  </ul>
+  <p>这些场景都不紧急，但都很实在。它们不需要华丽的欢迎页，也不需要弹窗提示。一个稳定、干净的页面，加上足够可靠的内容，就是最好的回应。</p>
+
+  <h2>关于“对照”的一点体会</h2>
+  <p>所谓对照，其实不只是把两个东西放在一起比较。更多时候，它是一种心理动作——你心里有一个模糊的印象，然后你把它和另一个来源的信息放在一起，看它们是否吻合，或者看它们能碰撞出什么新的理解。这种过程不需要快，反而需要一点耐心。</p>
+  <p>而<a href="https://official-yongli.com" class="inline-link">永利</a>提供的就是这样一种耐心的氛围。它的界面没有多余的装饰，内容排版疏朗，读起来不累。更重要的是，它的条目之间常常有交叉引用，像是一张隐形的网，你可以顺着其中一个节点，慢慢走到另一个相关的领域。</p>
+
+  <div class="visit-note">
+    <p><strong>一个简单的建议：</strong>如果你正在写东西，或者只是闲来无事想读点有分量的内容，不妨把<a href="https://official-yongli.com" class="inline-link">永利</a>当作一个起点。不必抱着“一定要找到什么”的心态，打开它，随便点开一条，读两段，如果感兴趣就继续，如果不感兴趣就换一条。这种没有压力的浏览，反而常常带来意想不到的收获。</p>
+  </div>
+
+  <div class="faq-mini">
+    <details>
+      <summary>FAQ · 一些零碎答案</summary>
+      <p><strong>问：</strong>是否必须注册或登录才能使用？<br>
+      <strong>答：</strong>不需要。所有内容均可直接查阅，无需任何身份验证。</p>
+      <p><strong>问：</strong>内容更新频率是怎样的？<br>
+      <strong>答：</strong>不定期补充和修订，保持内容的准确与时效。没有固定排期，但每次更新都经过仔细核对。</p>
+      <p><strong>问：</strong>是否可以引用其中的内容？<br>
+      <strong>答：</strong>可以。按照通常的学术规范标明出处即可。建议直接引用原文时保留上下文。</p>
+    </details>
+  </div>
+
+  <div class="footer">
+    日常对照 · 延伸阅读 · 一点安静的线索
+  </div>
+</div>
+</body>
+</html>
